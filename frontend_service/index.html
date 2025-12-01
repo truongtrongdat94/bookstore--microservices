@@ -1,19 +1,67 @@
-
-  <!DOCTYPE html>
-  <html lang="vi">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="description" content="Nhà sách trực tuyến UIT - Khám phá kho tàng sách đa dạng với giá tốt nhất. Sách văn học, khoa học, kỹ năng sống và nhiều thể loại khác." />
-      <meta name="keywords" content="sách, nhà sách, bookstore, UIT, mua sách online, sách văn học, sách khoa học" />
-      <meta name="author" content="UIT Bookstore" />
-      <meta name="robots" content="index, follow" />
-      <meta property="og:title" content="Nhà sách UIT - Bởi vì sách là thế giới" />
-      <meta property="og:description" content="Khám phá kho tàng sách đa dạng với giá tốt nhất tại Nhà sách UIT" />
-      <meta property="og:type" content="website" />
-      <link rel="canonical" href="/" />
-      <title>Nhà sách UIT - Bởi vì sách là thế giới</title>
-    </head>
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Preconnect to external origins FIRST (before any requests) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    
+    <!-- DNS Prefetch for additional origins -->
+    <link rel="dns-prefetch" href="https://picsum.photos" />
+    <link rel="dns-prefetch" href="https://fastly.picsum.photos" />
+    <link rel="dns-prefetch" href="https://covers.openlibrary.org" />
+    
+    <!-- Preload LCP Image - Hero banner (smaller size for faster load) -->
+    <link 
+      rel="preload" 
+      href="https://images.unsplash.com/photo-1699544006887-72b4f965e785?w=600&q=30&fm=webp&auto=format" 
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    
+    <!-- 
+      Google Fonts - Reduced weights for faster load
+      Only essential weights: 400, 500, 600 for Inter; 400, 600, 700 for Lora
+    -->
+    <link 
+      rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" 
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    </noscript>
+    
+    <!-- Fallback font stack while Google Fonts loads -->
+    <style>
+      /* Critical CSS - Font fallback to prevent FOUT */
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      }
+    </style>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Nhà sách trực tuyến UIT - Khám phá kho tàng sách đa dạng với giá tốt nhất. Sách văn học, khoa học, kỹ năng sống và nhiều thể loại khác." />
+    <meta name="keywords" content="sách, nhà sách, bookstore, UIT, mua sách online, sách văn học, sách khoa học" />
+    <meta name="author" content="UIT Bookstore" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Nhà sách UIT - Bởi vì sách là thế giới" />
+    <meta property="og:description" content="Khám phá kho tàng sách đa dạng với giá tốt nhất tại Nhà sách UIT" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://d38fxb3ja7kpkm.cloudfront.net/" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://d38fxb3ja7kpkm.cloudfront.net/" />
+    
+    <title>Nhà sách UIT - Bởi vì sách là thế giới</title>
+  </head>
 
     <body>
       <div id="root"></div>

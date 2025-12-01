@@ -101,6 +101,8 @@ export function AuthorsPage() {
                 src={author.image_url || ''}
                 alt={author.name}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                displayWidth={280}
+                aspectRatio="1/1"
               />
             </div>
             <div className="p-4 text-center">

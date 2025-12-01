@@ -141,7 +141,8 @@ export function BlogSection() {
                 src={featuredPost.featured_image || ''}
                 alt={featuredPost.title}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                loading="lazy"
+                displayWidth={800}
+                aspectRatio="16/9"
               />
             </div>
             <div className="p-6">
@@ -170,7 +171,8 @@ export function BlogSection() {
                     src={post.featured_image || ''}
                     alt={post.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
+                    displayWidth={96}
+                    aspectRatio="1/1"
                   />
                 </div>
                 <div className="flex-1 flex flex-col justify-between min-w-0">

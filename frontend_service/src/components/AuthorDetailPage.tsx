@@ -78,6 +78,9 @@ export function AuthorDetailPage() {
                 src={author.image_url || ''}
                 alt={author.name}
                 className="w-full h-full object-cover"
+                priority={true}
+                displayWidth={400}
+                aspectRatio="1/1"
               />
             </div>
             <div className="p-6 text-center">
@@ -144,6 +147,8 @@ export function AuthorDetailPage() {
                     src={book.cover_image_url || ''}
                     alt={book.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    displayWidth={180}
+                    aspectRatio="3/4"
                   />
                 </div>
                 <div className="p-4">

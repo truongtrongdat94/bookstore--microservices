@@ -103,13 +103,17 @@ export function BookListingPage({ onNavigate }: BookListingPageProps) {
 
   return (
     <div>
-      {/* Banner */}
-      <div 
-        className="h-[300px] bg-cover bg-center relative"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1637962638310-e6787f7eb324?w=800&q=60&fm=webp)',
-        }}
-      >
+      {/* Banner - Using img tag instead of background-image for better LCP */}
+      <div className="h-[300px] relative overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1637962638310-e6787f7eb324?w=600&q=50&fm=webp"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+          width={600}
+          height={300}
+        />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative max-w-[1200px] mx-auto px-4 h-full flex items-center">
           <h1 className="text-white">Sách UIT</h1>
@@ -199,8 +203,18 @@ export function BookListingPage({ onNavigate }: BookListingPageProps) {
 
             {/* Books Grid */}
             {booksLoading ? (
-              <div className="text-center py-12">
-                <p className="text-gray-500">Đang tải sách...</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {[...Array(8)].map((_, i) => (
+                  <Card key={i} className="overflow-hidden">
+                    <div className="aspect-[3/4] bg-gray-200" />
+                    <div className="p-4 space-y-2">
+                      <div className="h-4 bg-gray-200 rounded w-full" />
+                      <div className="h-3 bg-gray-200 rounded w-2/3" />
+                      <div className="h-4 bg-gray-200 rounded w-1/3" />
+                      <div className="h-9 bg-gray-200 rounded w-full mt-2" />
+                    </div>
+                  </Card>
+                ))}
               </div>
             ) : filteredBooks.length === 0 ? (
               <div className="text-center py-12">
@@ -218,10 +232,12 @@ export function BookListingPage({ onNavigate }: BookListingPageProps) {
                       }}
                     >
                       <ImageWithFallback 
-                        src={book.cover_image_url || 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=250'} 
+                        src={book.cover_image_url} 
                         alt={book.title}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         displayWidth={250}
+                        aspectRatio="3/4"
+                        placeholderType="book"
                       />
                     </div>
                     <div className="p-4">

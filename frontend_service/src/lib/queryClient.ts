@@ -5,7 +5,10 @@ export const queryClient = new QueryClient({
     queries: {
       retry: 1,
       refetchOnWindowFocus: false,
-      staleTime: 5 * 60 * 1000, // 5 minutes
+      // Performance: Increase stale time to reduce refetches
+      staleTime: 10 * 60 * 1000, // 10 minutes
+      // Performance: Cache data longer
+      gcTime: 30 * 60 * 1000, // 30 minutes (formerly cacheTime)
     },
     mutations: {
       retry: 0,

@@ -145,7 +145,8 @@ export function BlogListPage() {
                       src={post.featured_image || ''}
                       alt={post.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
+                      displayWidth={400}
+                      aspectRatio="16/10"
                     />
                   </div>
 

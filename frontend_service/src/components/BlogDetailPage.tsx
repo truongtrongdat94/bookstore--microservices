@@ -199,6 +199,9 @@ export function BlogDetailPage() {
               src={blog.featured_image}
               alt={blog.title}
               className="w-full"
+              priority={true}
+              displayWidth={680}
+              aspectRatio="16/9"
             />
           </div>
         )}
@@ -236,7 +239,8 @@ export function BlogDetailPage() {
                       src={post.featured_image || ''}
                       alt={post.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
+                      displayWidth={250}
+                      aspectRatio="16/10"
                     />
                   </div>
                   <div className="p-4 flex flex-col flex-grow">

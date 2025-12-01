@@ -172,6 +172,7 @@ export class BookModel {
     const sql = `
       SELECT 
         b.*,
+        b.cover_image as cover_image_url,
         c.name as category_name,
         COALESCE(AVG(r.rating), 0) as average_rating,
         COUNT(DISTINCT r.review_id) as review_count
@@ -263,7 +264,7 @@ export class BookModel {
     if (cached) return cached;
     
     const sql = `
-      SELECT b.*, c.name as category_name,
+      SELECT b.*, b.cover_image as cover_image_url, c.name as category_name,
              COALESCE(AVG(r.rating), 0) as average_rating,
              COUNT(r.review_id)::text as review_count
       FROM books b

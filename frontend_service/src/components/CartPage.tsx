@@ -278,6 +278,8 @@ export function CartPage() {
                             src={item.book_image || ''}
                             alt={item.book_title || ''}
                             className="w-full h-full object-cover"
+                            displayWidth={64}
+                            aspectRatio="4/5"
                           />
                         </div>
                       </TableCell>
@@ -340,6 +342,8 @@ export function CartPage() {
                         src={item.book_image || ''}
                         alt={item.book_title || ''}
                         className="w-full h-full object-cover"
+                        displayWidth={80}
+                        aspectRatio="5/7"
                       />
                     </div>
                     <div className="flex-1">

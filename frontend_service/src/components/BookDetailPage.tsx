@@ -211,6 +211,9 @@ export function BookDetailPage() {
                 src={book.cover_image_url || ''} 
                 alt={book.title}
                 className="w-full h-auto"
+                priority={true}
+                displayWidth={400}
+                aspectRatio="3/4"
               />
             </Card>
           </div>
@@ -344,6 +347,8 @@ export function BookDetailPage() {
                     src={relatedBook.cover_image_url || ''} 
                     alt={relatedBook.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    displayWidth={171}
+                    aspectRatio="3/4"
                   />
                 </div>
                 <div className="p-4">

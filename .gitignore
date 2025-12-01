@@ -1,257 +1,50 @@
-# =============================================================================
-# ENVIRONMENT VARIABLES (SECRETS - CRITICAL)
-# =============================================================================
-# Root .env files
+# Environment Variables
 .env
 .env.local
-.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Service-specific .env files (contain secrets)
-**/.env
-*/.env
-api-gateway/.env
-book-service/.env
-blog-service/.env
-notification-service/.env
-order-service/.env
-user-service/.env
-frontend_service/.env.local
-tests/.env.test
-tests/.env*
-
-# Keep example files for reference
+# But keep example files
 !.env.example
-!*/.env.example
 
-# =============================================================================
-# NODE MODULES & PACKAGE MANAGER
-# =============================================================================
+# Node modules
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-package-lock.json
-# Note: Keep package-lock.json if you want reproducible builds
-# Remove the line above if you want to track it
 
-# =============================================================================
-# BUILD OUTPUTS (Auto-generated, don't commit)
-# =============================================================================
-# TypeScript compiled output
+# Build outputs
 dist/
-*/dist/
-
-# Frontend build output
 build/
-*/build/
-frontend_service/build/
-
-# TypeScript build info
 *.tsbuildinfo
 
-# =============================================================================
-# TEST & COVERAGE (Auto-generated)
-# =============================================================================
-coverage/
-*/coverage/
-.nyc_output/
-*.lcov
-
-# =============================================================================
-# TEST SCRIPTS & DEBUG FILES (Development only)
-# =============================================================================
-# PowerShell test scripts (root level)
-/test-*.ps1
-/debug-*.ps1
-/check-*.ps1
-/restart-*.ps1
-/start-*.ps1
-
-# PowerShell test scripts (in subdirectories)
-**/test-*.ps1
-**/debug-*.ps1
-**/run-*.ps1
-
-# HTML test pages
-/test-*.html
-
-# SQL test files
-*.sql
-!**/migrations/*.sql
-
-# =============================================================================
-# IDE & EDITOR
-# =============================================================================
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-*.sublime-workspace
-*.sublime-project
 
-# =============================================================================
-# OPERATING SYSTEM
-# =============================================================================
+# OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-desktop.ini
 
-# =============================================================================
-# LOGS
-# =============================================================================
+# Logs
 logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
 
-# =============================================================================
-# TEMPORARY & CACHE FILES
-# =============================================================================
+# Coverage
+coverage/
+.nyc_output/
+
+# Temporary files
 *.tmp
-*.temp
 .cache/
-.parcel-cache/
-.eslintcache
-.stylelintcache
 
-# =============================================================================
-# DOCKER (Local development data)
-# =============================================================================
+# Docker volumes (if locally managed)
 .docker-data/
-docker-compose.override.yml
 
-# =============================================================================
-# UPLOADS (User-generated content)
-# =============================================================================
+# Uploads (user-generated content)
 user-service/uploads/*
 !user-service/uploads/.gitkeep
-uploads/
-!uploads/.gitkeep
-
-# =============================================================================
-# DOCUMENTATION - DEVELOPMENT LOGS (Not needed for production)
-# =============================================================================
-# Task completion logs (root level)
-/TASK_*.md
-
-# Fix/troubleshooting logs (root level)
-/*_FIX.md
-/*_FIX_*.md
-/*_FIXED_*.md
-/*_TROUBLESHOOTING.md
-/FIX_*.md
-
-# Vietnamese fix logs (root level)
-/SUA_*.md
-/HOAN_TAT_*.md
-/DON_DEP_*.md
-
-# Implementation completion logs (root level)
-/*_COMPLETE.md
-/*_IMPLEMENTATION.md
-/*_IMPLEMENTATION_COMPLETE.md
-/*_INTEGRATION_COMPLETE.md
-
-# Setup completion logs (root level)
-/*_SETUP_COMPLETE.md
-/*_SETUP_FIX.md
-
-# Test guides (root level)
-/*_TEST_GUIDE.md
-/*_TEST_RESULTS.md
-/test-*-manual.md
-
-# Feature plans (root level)
-/*_FEATURE_PLAN.md
-/*_REFACTOR_PLAN.md
-
-# Summaries and reviews (root level)
-/*_SUMMARY.md
-/*_REVIEW_SUMMARY.md
-/TOM_TAT_*.md
-
-# Service-specific documentation logs
-**/*_COMPLETE.md
-**/*_IMPLEMENTATION.md
-**/TASK_*.md
-
-# Additional documentation to ignore
-/docs/progress-report-*.md
-/docs/API_GAP_ANALYSIS.md
-frontend_service/CLEAR_AUTH.md
-frontend_service/FRONTEND_CONNECTION_STATUS.md
-user-service/EMAIL_SERVICE_SETUP.md
-user-service/ENVIRONMENT_VARIABLES.md
-user-service/QUICK_REFERENCE.md
-
-# SQL files (except migrations)
-*.sql
-!**/migrations/*.sql
-
-# =============================================================================
-# KEEP THESE DOCUMENTATION FILES (Important for users)
-# =============================================================================
-!README.md
-!*/README.md
-!ARCHITECTURE.md
-!API_DOCUMENTATION.md
-!AWS_DEPLOYMENT_GUIDE.md
-!AWS_DEPLOYMENT_CHECKLIST.md
-!QUICK_START_VIETNAMESE.md
-!ENVIRONMENT_SETUP.md
-!.env.example
-!*/.env.example
-
-# =============================================================================
-# POSTMAN/API TESTING (Optional - can keep for API documentation)
-# =============================================================================
-# gateway.postman.json  # Uncomment to ignore
-
-# =============================================================================
-# MISC
-# =============================================================================
-*.bak
-*.backup
-*.old
-
-# Ignore all markdown and env files
-*.md
-.env
-.env.*
-*.env
-
-# Block all .md and .env files
-*.md
-*.env
-**/*.md
-**/*.env
-
-# Block scripts, tests, docs
-scripts/
-tests/
-docs/
-__tests__/
-**/__tests__/
-*.test.ts
-*.test.js
-*.test.tsx
-*.spec.ts
-*.spec.js
-
-scripts/
-tests/
-docs/
-tools/
-__tests__/
-*.test.ts
-*.test.js
-jest.config.js
