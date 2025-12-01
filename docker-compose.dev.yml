@@ -1,0 +1,291 @@
+version: '3.8'
+
+services:
+  # API Gateway (Development)
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - JWT_SECRET=${JWT_SECRET:-dev-jwt-secret-key}
+      - USER_SERVICE_URL=http://user-service:3001
+      - BOOK_SERVICE_URL=http://book-service:3002
+      - ORDER_SERVICE_URL=http://order-service:3003
+      - NOTIFICATION_SERVICE_URL=http://notification-service:3004
+      - BLOG_SERVICE_URL=http://blog-service:3004
+      # CORS: Comma-separated list of allowed origins
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173}
+    volumes:
+      - ./api-gateway/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - user-service
+      - book-service
+      - order-service
+      - notification-service
+      - blog-service
+    networks:
+      - microservices-network
+
+  # User Service (Development)
+  user-service:
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=user-db
+      - DB_PORT=5432
+      - DB_NAME=users_db
+      - DB_USER=postgres
+      - DB_PASSWORD=${DB_PASSWORD:-dev_password}
+      - JWT_SECRET=${JWT_SECRET:-dev-jwt-secret-key}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-}
+      - GOOGLE_CALLBACK_URL=${GOOGLE_CALLBACK_URL:-http://localhost:3000/api/auth/google/callback}
+      - FACEBOOK_APP_ID=${FACEBOOK_APP_ID:-}
+      - FACEBOOK_APP_SECRET=${FACEBOOK_APP_SECRET:-}
+      - FACEBOOK_CALLBACK_URL=${FACEBOOK_CALLBACK_URL:-http://localhost:3000/api/auth/facebook/callback}
+      - MAILTRAP_HOST=${MAILTRAP_HOST:-sandbox.smtp.mailtrap.io}
+      - MAILTRAP_PORT=${MAILTRAP_PORT:-2525}
+      - MAILTRAP_USER=${MAILTRAP_USER:-}
+      - MAILTRAP_PASS=${MAILTRAP_PASS:-}
+      - EMAIL_FROM=${EMAIL_FROM:-noreply@bookstore.com}
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:5173}
+    volumes:
+      - ./user-service/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - user-db
+      - redis
+    networks:
+      - microservices-network
+
+  # Book Service (Development)
+  book-service:
+    build:
+      context: ./book-service
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=book-db
+      - DB_PORT=5432
+      - DB_NAME=books_db
+      - DB_USER=postgres
+      - DB_PASSWORD=${DB_PASSWORD:-dev_password}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+      - ./book-service/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - book-db
+      - redis
+    networks:
+      - microservices-network
+
+  # Order Service (Development)
+  order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=order-db
+      - DB_PORT=5432
+      - DB_NAME=orders_db
+      - DB_USER=postgres
+      - DB_PASSWORD=${DB_PASSWORD:-dev_password}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - RABBITMQ_URL=amqp://${RABBITMQ_USER:-admin}:${RABBITMQ_PASSWORD:-dev_password}@rabbitmq:5672
+      - BOOK_SERVICE_URL=http://book-service:3002
+      # VietQR API Configuration
+      - VIETQR_CLIENT_ID=${VIETQR_CLIENT_ID:-}
+      - VIETQR_API_KEY=${VIETQR_API_KEY:-}
+      - VIETQR_API_URL=${VIETQR_API_URL:-https://api.vietqr.io/v2/generate}
+      - VIETQR_ACCOUNT_NO=${VIETQR_ACCOUNT_NO:-}
+      - VIETQR_ACCOUNT_NAME=${VIETQR_ACCOUNT_NAME:-}
+      - VIETQR_ACQ_ID=${VIETQR_ACQ_ID:-970422}
+      - VIETQR_TEMPLATE=${VIETQR_TEMPLATE:-compact}
+      - PAYMENT_QR_EXPIRY_MINUTES=${PAYMENT_QR_EXPIRY_MINUTES:-15}
+    volumes:
+      - ./order-service/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - order-db
+      - redis
+      - rabbitmq
+    networks:
+      - microservices-network
+
+  # Notification Service (Development)
+  notification-service:
+    build:
+      context: ./notification-service
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3004:3004"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=notification-db
+      - DB_PORT=5432
+      - DB_NAME=notifications_db
+      - DB_USER=postgres
+      - DB_PASSWORD=${DB_PASSWORD:-dev_password}
+      - RABBITMQ_URL=amqp://${RABBITMQ_USER:-admin}:${RABBITMQ_PASSWORD:-dev_password}@rabbitmq:5672
+    volumes:
+      - ./notification-service/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - notification-db
+      - rabbitmq
+    networks:
+      - microservices-network
+
+  # Blog Service (Development)
+  blog-service:
+    build:
+      context: ./blog-service
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3005:3004"
+    environment:
+      - NODE_ENV=development
+      - PORT=3004
+      - DB_HOST=blog-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=${DB_PASSWORD:-dev_password}
+      - DB_NAME=blogs_db
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+      - ./blog-service/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - blog-db
+      - redis
+    networks:
+      - microservices-network
+
+  # Development Databases (same as production)
+  user-db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=users_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-dev_password}
+    volumes:
+      - user_db_data_dev:/var/lib/postgresql/data
+      - ./user-service/migrations:/docker-entrypoint-initdb.d:ro
+    networks:
+      - microservices-network
+    ports:
+      - "5431:5432"
+
+  book-db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=books_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-dev_password}
+    volumes:
+      - book_db_data_dev:/var/lib/postgresql/data
+      - ./book-service/migrations:/docker-entrypoint-initdb.d:ro
+    networks:
+      - microservices-network
+    ports:
+      - "5432:5432"
+
+  order-db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=orders_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-dev_password}
+    volumes:
+      - order_db_data_dev:/var/lib/postgresql/data
+      - ./order-service/migrations:/docker-entrypoint-initdb.d:ro
+    networks:
+      - microservices-network
+    ports:
+      - "5433:5432"
+
+  notification-db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=notifications_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-dev_password}
+    volumes:
+      - notification_db_data_dev:/var/lib/postgresql/data
+      - ./notification-service/migrations:/docker-entrypoint-initdb.d:ro
+    networks:
+      - microservices-network
+    ports:
+      - "5434:5432"
+
+  # PostgreSQL Database for Blog Service
+  blog-db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=blogs_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-dev_password}
+    volumes:
+      - blog_db_data_dev:/var/lib/postgresql/data
+      - ./blog-service/migrations:/docker-entrypoint-initdb.d:ro
+    networks:
+      - microservices-network
+    ports:
+      - "5435:5432"
+
+  # Redis (Development)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data_dev:/data
+    networks:
+      - microservices-network
+    command: redis-server --appendonly yes
+
+  # RabbitMQ (Development)
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER:-admin}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-dev_password}
+    volumes:
+      - rabbitmq_data_dev:/var/lib/rabbitmq
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
+
+volumes:
+  user_db_data_dev:
+  book_db_data_dev:
+  order_db_data_dev:
+  notification_db_data_dev:
+  blog_db_data_dev:
+  redis_data_dev:
+  rabbitmq_data_dev:

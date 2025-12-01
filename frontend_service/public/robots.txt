@@ -1,0 +1,6 @@
+# Robots.txt for UIT Bookstore
+User-agent: *
+Allow: /
+
+# Sitemap location (update with actual domain in production)
+# Sitemap: https://bookstore.uit.edu.vn/sitemap.xml

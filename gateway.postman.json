@@ -1,0 +1,2491 @@
+{
+    "item": [
+        {
+            "name": "api",
+            "description": "",
+            "item": [
+                {
+                    "name": "auth",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "register",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "29ee0f06-415d-4375-94d2-df0d5a85a93f",
+                                    "name": "Đăng ký",
+                                    "request": {
+                                        "name": "Đăng ký",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "auth",
+                                                "register"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"username\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"full_name\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "6e6f7d97-34ae-4ba9-b829-263e276eee2d",
+                                            "name": "Đăng ký thành công",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "auth",
+                                                        "register"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"username\": \"<string>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"full_name\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Created",
+                                            "code": 201,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "login",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "678dce4c-27d3-4e80-a960-518a68d40229",
+                                    "name": "Đăng nhập",
+                                    "request": {
+                                        "name": "Đăng nhập",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "auth",
+                                                "login"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "4e924c71-01d1-415e-b0e8-ed5b25f1d437",
+                                            "name": "Đăng nhập thành công",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "auth",
+                                                        "login"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "verify",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "70080bc0-cf23-4b8f-b261-4d6fc9e940f0",
+                                    "name": "Xác thực token",
+                                    "request": {
+                                        "name": "Xác thực token",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "auth",
+                                                "verify"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "206d9156-23ef-4fd9-985f-29a4a461a46a",
+                                            "name": "Hợp lệ",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "auth",
+                                                        "verify"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "users",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "profile",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "670cc8e6-9e88-483d-97f9-7b4cfa49053a",
+                                    "name": "Lấy hồ sơ",
+                                    "request": {
+                                        "name": "Lấy hồ sơ",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "users",
+                                                "profile"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "2a36f893-f35e-4fb4-9655-d9928faf53d4",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "users",
+                                                        "profile"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                },
+                                {
+                                    "id": "53b2b66b-513b-44d7-84e7-61f67b2f28c7",
+                                    "name": "Cập nhật hồ sơ",
+                                    "request": {
+                                        "name": "Cập nhật hồ sơ",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "users",
+                                                "profile"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "PUT",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"full_name\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "7df98d36-beb6-4842-bae8-43d11814d0de",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "users",
+                                                        "profile"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "PUT",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"full_name\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "books",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "b0da3e7f-d89c-4d5f-a195-779c7cec7653",
+                            "name": "Danh sách sách",
+                            "request": {
+                                "name": "Danh sách sách",
+                                "description": {},
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "books"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "page",
+                                            "value": "<integer>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "limit",
+                                            "value": "<integer>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "search",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "category",
+                                            "value": "<integer>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "cacc9246-b168-414f-a301-f8444d911eb3",
+                                    "name": "OK",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "books"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "page",
+                                                    "value": "<integer>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "limit",
+                                                    "value": "<integer>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "search",
+                                                    "value": "<string>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "category",
+                                                    "value": "<integer>"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "name": "{id}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "6cb545a3-8c27-43eb-a2e7-286c8bbe304d",
+                                    "name": "Chi tiết sách",
+                                    "request": {
+                                        "name": "Chi tiết sách",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "books",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<integer>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "559956a9-0fa7-4833-9a13-beb132046dfa",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "books",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        },
+                                        {
+                                            "id": "6cf91777-1b18-440b-b245-040600317f32",
+                                            "name": "Not found",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "books",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "categories",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "eb692ba8-cfbd-497c-8029-043d5ac328bf",
+                            "name": "Danh mục",
+                            "request": {
+                                "name": "Danh mục",
+                                "description": {},
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "categories"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "b11f097a-c23c-4ca7-83bc-d098521c8e39",
+                                    "name": "OK",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "categories"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "name": "tree",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "1473eabf-f70a-4353-9b6a-9b68a14fe800",
+                                    "name": "Cây danh mục",
+                                    "request": {
+                                        "name": "Cây danh mục",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "categories",
+                                                "tree"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "ae7f469d-41c0-4922-bfe9-f75612a218b5",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "categories",
+                                                        "tree"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "cart",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "cf371e7d-eaa7-40cb-947a-6f00168b72c5",
+                            "name": "Xem giỏ hàng",
+                            "request": {
+                                "name": "Xem giỏ hàng",
+                                "description": {},
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "cart"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "(Required) ",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "x-user-id",
+                                        "value": "<integer>"
+                                    },
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "(Required) ",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "x-user-email",
+                                        "value": "<email>"
+                                    },
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "x-user-role",
+                                        "value": "user"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{bearerToken}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "91fd5271-b824-4458-bc2a-1a929362e12a",
+                                    "name": "OK",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "cart"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-id",
+                                                "value": "<integer>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-email",
+                                                "value": "<email>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-role",
+                                                "value": "user"
+                                            },
+                                            {
+                                                "description": {
+                                                    "content": "Added as a part of security scheme: bearer",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "id": "ed63307a-5b59-4df2-8200-04a5db9bb59b",
+                            "name": "Xóa toàn bộ giỏ",
+                            "request": {
+                                "name": "Xóa toàn bộ giỏ",
+                                "description": {},
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "cart"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "(Required) ",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "x-user-id",
+                                        "value": "<integer>"
+                                    },
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "(Required) ",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "x-user-email",
+                                        "value": "<email>"
+                                    },
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "x-user-role",
+                                        "value": "user"
+                                    }
+                                ],
+                                "method": "DELETE",
+                                "body": {},
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{bearerToken}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "8e59630e-454e-4baa-91ab-0fca610d86b8",
+                                    "name": "OK",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "cart"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-id",
+                                                "value": "<integer>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-email",
+                                                "value": "<email>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-role",
+                                                "value": "user"
+                                            },
+                                            {
+                                                "description": {
+                                                    "content": "Added as a part of security scheme: bearer",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                            }
+                                        ],
+                                        "method": "DELETE",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "name": "items",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "2f24e424-eabb-4464-9a6f-10dcdb33369d",
+                                    "name": "Thêm vào giỏ",
+                                    "request": {
+                                        "name": "Thêm vào giỏ",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "cart",
+                                                "items"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-id",
+                                                "value": "<integer>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-email",
+                                                "value": "<email>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-role",
+                                                "value": "user"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"book_id\": \"<integer>\",\n  \"quantity\": \"<integer>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "f2365dd6-b613-490c-8d25-0881497bb496",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "cart",
+                                                        "items"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-id",
+                                                        "value": "<integer>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-email",
+                                                        "value": "<email>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-role",
+                                                        "value": "user"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"book_id\": \"<integer>\",\n  \"quantity\": \"<integer>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                },
+                                {
+                                    "name": "{bookId}",
+                                    "description": "",
+                                    "item": [
+                                        {
+                                            "id": "fa0a59d7-b337-4705-8f80-e6b24bc3d9d8",
+                                            "name": "Cập nhật số lượng",
+                                            "request": {
+                                                "name": "Cập nhật số lượng",
+                                                "description": {},
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "cart",
+                                                        "items",
+                                                        ":bookId"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": [
+                                                        {
+                                                            "type": "any",
+                                                            "value": "<integer>",
+                                                            "key": "bookId",
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-id",
+                                                        "value": "<integer>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-email",
+                                                        "value": "<email>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-role",
+                                                        "value": "user"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "PUT",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"quantity\": \"<integer>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "auth": {
+                                                    "type": "bearer",
+                                                    "bearer": [
+                                                        {
+                                                            "key": "token",
+                                                            "value": "{{bearerToken}}"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "id": "beb95d5b-3261-4646-ab78-ee8ee3d4a21d",
+                                                    "name": "OK",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "cart",
+                                                                "items",
+                                                                ":bookId"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "header": [
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "(Required) ",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-id",
+                                                                "value": "<integer>"
+                                                            },
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "(Required) ",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-email",
+                                                                "value": "<email>"
+                                                            },
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-role",
+                                                                "value": "user"
+                                                            },
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "description": {
+                                                                    "content": "Added as a part of security scheme: bearer",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "Authorization",
+                                                                "value": "Bearer <token>"
+                                                            }
+                                                        ],
+                                                        "method": "PUT",
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"quantity\": \"<integer>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "headerFamily": "json",
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "header": [],
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "text"
+                                                }
+                                            ],
+                                            "event": [],
+                                            "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                            }
+                                        },
+                                        {
+                                            "id": "7a1f18b3-a121-42cf-914e-8822650a7119",
+                                            "name": "Xóa item",
+                                            "request": {
+                                                "name": "Xóa item",
+                                                "description": {},
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "cart",
+                                                        "items",
+                                                        ":bookId"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": [
+                                                        {
+                                                            "type": "any",
+                                                            "value": "<integer>",
+                                                            "key": "bookId",
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-id",
+                                                        "value": "<integer>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-email",
+                                                        "value": "<email>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-role",
+                                                        "value": "user"
+                                                    }
+                                                ],
+                                                "method": "DELETE",
+                                                "body": {},
+                                                "auth": {
+                                                    "type": "bearer",
+                                                    "bearer": [
+                                                        {
+                                                            "key": "token",
+                                                            "value": "{{bearerToken}}"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "id": "6c6db32c-1890-43cc-915e-b9eea4b974b1",
+                                                    "name": "OK",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "cart",
+                                                                "items",
+                                                                ":bookId"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "header": [
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "(Required) ",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-id",
+                                                                "value": "<integer>"
+                                                            },
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "(Required) ",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-email",
+                                                                "value": "<email>"
+                                                            },
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-role",
+                                                                "value": "user"
+                                                            },
+                                                            {
+                                                                "description": {
+                                                                    "content": "Added as a part of security scheme: bearer",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "Authorization",
+                                                                "value": "Bearer <token>"
+                                                            }
+                                                        ],
+                                                        "method": "DELETE",
+                                                        "body": {}
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "header": [],
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "text"
+                                                }
+                                            ],
+                                            "event": [],
+                                            "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "orders",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "checkout",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "b566a4bb-f7e1-43b7-aa74-ea44693b58fb",
+                                    "name": "Checkout",
+                                    "request": {
+                                        "name": "Checkout",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "orders",
+                                                "checkout"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-id",
+                                                "value": "<integer>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-email",
+                                                "value": "<email>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-role",
+                                                "value": "user"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"shipping_address\": \"<string>\",\n  \"payment_method\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "fdd81178-4a44-499f-b84c-57064e705919",
+                                            "name": "Created",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "orders",
+                                                        "checkout"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-id",
+                                                        "value": "<integer>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-email",
+                                                        "value": "<email>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-role",
+                                                        "value": "user"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"shipping_address\": \"<string>\",\n  \"payment_method\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Created",
+                                            "code": 201,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "my-orders",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "0748a8d1-4190-4538-aeac-1a71f57562e6",
+                                    "name": "Danh sách đơn hàng của người dùng",
+                                    "request": {
+                                        "name": "Danh sách đơn hàng của người dùng",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "orders",
+                                                "my-orders"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-id",
+                                                "value": "<integer>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-email",
+                                                "value": "<email>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-role",
+                                                "value": "user"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "39f5f0bb-cd8f-404e-bb49-a3be2885f762",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "orders",
+                                                        "my-orders"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-id",
+                                                        "value": "<integer>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-email",
+                                                        "value": "<email>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-role",
+                                                        "value": "user"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "{id}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "9978a5f0-46b5-41ff-af6c-6a4b02b1eb12",
+                                    "name": "Chi tiết đơn hàng",
+                                    "request": {
+                                        "name": "Chi tiết đơn hàng",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "orders",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<integer>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "header": [
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-id",
+                                                "value": "<integer>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-email",
+                                                "value": "<email>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-role",
+                                                "value": "user"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "f3e2e47f-ef86-4980-a288-2ce5f15aa78f",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "orders",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-id",
+                                                        "value": "<integer>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-email",
+                                                        "value": "<email>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-role",
+                                                        "value": "user"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                },
+                                {
+                                    "name": "cancel",
+                                    "description": "",
+                                    "item": [
+                                        {
+                                            "id": "7c27858c-2474-4ba1-abcd-1a38cd09a309",
+                                            "name": "Hủy đơn",
+                                            "request": {
+                                                "name": "Hủy đơn",
+                                                "description": {},
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "orders",
+                                                        ":id",
+                                                        "cancel"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": [
+                                                        {
+                                                            "type": "any",
+                                                            "value": "<integer>",
+                                                            "key": "id",
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-id",
+                                                        "value": "<integer>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-email",
+                                                        "value": "<email>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-role",
+                                                        "value": "user"
+                                                    }
+                                                ],
+                                                "method": "DELETE",
+                                                "body": {},
+                                                "auth": {
+                                                    "type": "bearer",
+                                                    "bearer": [
+                                                        {
+                                                            "key": "token",
+                                                            "value": "{{bearerToken}}"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "id": "e4b87352-b9d1-4601-aff8-558c69c96b6a",
+                                                    "name": "OK",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "api",
+                                                                "orders",
+                                                                ":id",
+                                                                "cancel"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": []
+                                                        },
+                                                        "header": [
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "(Required) ",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-id",
+                                                                "value": "<integer>"
+                                                            },
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "(Required) ",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-email",
+                                                                "value": "<email>"
+                                                            },
+                                                            {
+                                                                "disabled": false,
+                                                                "description": {
+                                                                    "content": "",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "x-user-role",
+                                                                "value": "user"
+                                                            },
+                                                            {
+                                                                "description": {
+                                                                    "content": "Added as a part of security scheme: bearer",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "Authorization",
+                                                                "value": "Bearer <token>"
+                                                            }
+                                                        ],
+                                                        "method": "DELETE",
+                                                        "body": {}
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "header": [],
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "text"
+                                                }
+                                            ],
+                                            "event": [],
+                                            "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "notifications",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "bb071653-f809-4c8b-ba4c-ab7400c22fbb",
+                            "name": "Danh sách thông báo",
+                            "request": {
+                                "name": "Danh sách thông báo",
+                                "description": {},
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "notifications"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "(Required) ",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "x-user-id",
+                                        "value": "<integer>"
+                                    },
+                                    {
+                                        "disabled": false,
+                                        "description": {
+                                            "content": "(Required) ",
+                                            "type": "text/plain"
+                                        },
+                                        "key": "x-user-email",
+                                        "value": "<email>"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{bearerToken}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "a3d16323-8487-45b9-aacb-41946ed1246c",
+                                    "name": "OK",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "notifications"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-id",
+                                                "value": "<integer>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-email",
+                                                "value": "<email>"
+                                            },
+                                            {
+                                                "description": {
+                                                    "content": "Added as a part of security scheme: bearer",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "name": "{id}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "111531fa-9034-41ee-8a4e-f12e470d8d31",
+                                    "name": "Chi tiết thông báo",
+                                    "request": {
+                                        "name": "Chi tiết thông báo",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "notifications",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<integer>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "header": [
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-id",
+                                                "value": "<integer>"
+                                            },
+                                            {
+                                                "disabled": false,
+                                                "description": {
+                                                    "content": "(Required) ",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "x-user-email",
+                                                "value": "<email>"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "c8c866fd-162a-44be-9ce3-d643f37831be",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "notifications",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-id",
+                                                        "value": "<integer>"
+                                                    },
+                                                    {
+                                                        "disabled": false,
+                                                        "description": {
+                                                            "content": "(Required) ",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "x-user-email",
+                                                        "value": "<email>"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "mark-read",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "23791506-6f74-420e-805c-8de133ebfc50",
+                                    "name": "Đánh dấu đã đọc",
+                                    "request": {
+                                        "name": "Đánh dấu đã đọc",
+                                        "description": {},
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "notifications",
+                                                "mark-read"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"notification_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "cbce8709-f0ed-49ff-b4ef-358296f02e90",
+                                            "name": "OK",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "notifications",
+                                                        "mark-read"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"notification_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "event": [],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000"
+        }
+    ],
+    "info": {
+        "_postman_id": "ec512a1a-b474-4dde-a431-3d0ec97e8d8d",
+        "name": "Bookstore API Gateway",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": {
+            "content": "OpenAPI tổng hợp (proxy) cho các microservices",
+            "type": "text/plain"
+        }
+    }
+}

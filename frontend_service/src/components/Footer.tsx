@@ -1,0 +1,44 @@
+export function Footer() {
+  return (
+    <footer className="bg-[#1B5E20] text-white mt-20">
+      <div className="max-w-[1200px] mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Column 1 - Contact Info */}
+          <div>
+            <h4 className="text-white mb-4">UIT</h4>
+            <div className="space-y-2 text-sm text-white/90">
+              <p>📍 59 Đỗ Quang, Trung Hoà, Cầu Giấy, Hà Nội</p>
+              <p>📧 contact@UIT.vn</p>
+              <p>📞 024 3512 3456</p>
+            </div>
+          </div>
+
+          {/* Column 2 - About */}
+          <div>
+            <h5 className="text-white mb-4">Giới thiệu</h5>
+            <ul className="space-y-2 text-sm text-white/90">
+              <li><a href="#" className="hover:text-white transition-colors">Về UIT</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Hệ thống hiệu sách</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Tuyển dụng</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Liên hệ</a></li>
+            </ul>
+          </div>
+
+          {/* Column 3 - Policies */}
+          <div>
+            <h5 className="text-white mb-4">Chính sách</h5>
+            <ul className="space-y-2 text-sm text-white/90">
+              <li><a href="#" className="hover:text-white transition-colors">Chính sách bảo mật</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Chính sách đổi trả</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Thanh toán & vận chuyển</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-white/20 mt-8 pt-6 text-center text-sm text-white/80">
+          <p>© 2025 UIT. Bởi vì sách là thế giới.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}

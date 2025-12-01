@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - Bookstore</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .otp-container {
+            background-color: #f8f9fa;
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .otp-label {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .otp-code {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+            letter-spacing: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        .expiry-notice {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .expiry-notice p {
+            margin: 0;
+            color: #856404;
+            font-size: 14px;
+        }
+        .expiry-notice strong {
+            color: #856404;
+        }
+        .security-notice {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .security-notice p {
+            margin: 0;
+            color: #721c24;
+            font-size: 14px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        .footer p {
+            margin: 5px 0;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        @media only screen and (max-width: 600px) {
+            .content {
+                padding: 30px 20px;
+            }
+            .otp-code {
+                font-size: 28px;
+                letter-spacing: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>📚 Bookstore</h1>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">
+                Hello!
+            </div>
+            
+            <div class="message">
+                Thank you for registering with Bookstore. To complete your registration and verify your email address, please use the One-Time Password (OTP) below:
+            </div>
+            
+            <div class="otp-container">
+                <div class="otp-label">Your Verification Code</div>
+                <div class="otp-code">{{OTP_CODE}}</div>
+            </div>
+            
+            <div class="expiry-notice">
+                <p><strong>⏰ Important:</strong> This code will expire in <strong>5 minutes</strong>. Please enter it promptly to verify your email address.</p>
+            </div>
+            
+            <div class="message">
+                If you didn't request this code, you can safely ignore this email. Your account will not be created without verification.
+            </div>
+            
+            <div class="security-notice">
+                <p><strong>🔒 Security Tip:</strong> Never share this code with anyone. Bookstore staff will never ask for your verification code.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Bookstore</strong></p>
+            <p>Your trusted online bookstore</p>
+            <p style="margin-top: 15px;">
+                Need help? <a href="mailto:support@bookstore.com">Contact Support</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 12px; color: #999;">
+                This is an automated email. Please do not reply to this message.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

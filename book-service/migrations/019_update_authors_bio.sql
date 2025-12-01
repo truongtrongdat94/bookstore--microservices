@@ -1,0 +1,281 @@
+-- Migration: Update authors with complete bio information
+-- This migration adds detailed bio for authors that were missing it
+
+UPDATE authors SET 
+  bio = 'Isaac Asimov (1920-1992) là nhà văn khoa học viễn tưởng và giáo sư sinh hóa người Mỹ gốc Nga. Ông là một trong những tác giả khoa học viễn tưởng vĩ đại nhất, với hơn 500 cuốn sách. Series Foundation và Robot của ông đã định hình thể loại khoa học viễn tưởng hiện đại.',
+  quote = 'Kẻ thù nguy hiểm nhất của tri thức không phải là vô tri, mà là ảo tưởng về tri thức.',
+  nationality = 'Mỹ',
+  birth_year = 1920,
+  death_year = 1992,
+  image_url = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600'
+WHERE name = 'Isaac Asimov';
+
+UPDATE authors SET 
+  bio = 'Bác sĩ Nguyễn Ý Đức là bác sĩ và tác giả sách y học phổ thông tại Việt Nam. Ông chuyên viết các cẩm nang sức khỏe dễ hiểu cho gia đình Việt Nam.',
+  quote = 'Sức khỏe là tài sản quý giá nhất của mỗi người.',
+  nationality = 'Việt Nam',
+  image_url = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600'
+WHERE name = 'BS. Nguyễn Ý Đức';
+
+UPDATE authors SET 
+  bio = 'Karl Marx (1818-1883) là triết gia, kinh tế học gia và nhà cách mạng người Đức. Tác phẩm "Das Kapital" và "The Communist Manifesto" của ông đã có ảnh hưởng to lớn đến lịch sử thế giới và tư tưởng chính trị.',
+  quote = 'Lịch sử của mọi xã hội cho đến nay là lịch sử của đấu tranh giai cấp.',
+  nationality = 'Đức',
+  birth_year = 1818,
+  death_year = 1883,
+  image_url = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600'
+WHERE name = 'Karl Marx';
+
+UPDATE authors SET 
+  bio = 'J.R.R. Tolkien (1892-1973) là nhà văn, nhà thơ và giáo sư người Anh, tác giả của "The Hobbit" và "The Lord of the Rings". Ông được coi là cha đẻ của thể loại văn học kỳ ảo hiện đại.',
+  quote = 'Không phải tất cả những ai lang thang đều bị lạc.',
+  nationality = 'Anh',
+  birth_year = 1892,
+  death_year = 1973,
+  image_url = 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=600'
+WHERE name = 'J.R.R. Tolkien';
+
+UPDATE authors SET 
+  bio = 'Daniel Kahneman (1934-2024) là nhà tâm lý học người Israel-Mỹ, đoạt giải Nobel Kinh tế năm 2002. Cuốn sách "Thinking, Fast and Slow" của ông giải thích hai hệ thống tư duy của con người.',
+  quote = 'Chúng ta có thể bị mù quáng trước những điều hiển nhiên.',
+  nationality = 'Israel',
+  birth_year = 1934,
+  death_year = 2024,
+  image_url = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600'
+WHERE name = 'Daniel Kahneman';
+
+UPDATE authors SET 
+  bio = 'Hoài Thanh (1909-1982) là nhà phê bình văn học và nhà thơ Việt Nam. Ông là một trong những nhà phê bình văn học tiên phong, có ảnh hưởng lớn đến văn học Việt Nam hiện đại với tác phẩm "Thi nhân Việt Nam".',
+  quote = 'Văn học là nghệ thuật của ngôn từ.',
+  nationality = 'Việt Nam',
+  birth_year = 1909,
+  death_year = 1982,
+  image_url = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600'
+WHERE name = 'Hoài Thanh';
+
+UPDATE authors SET 
+  bio = 'James Clear là tác giả và diễn giả về thói quen, ra quyết định và cải thiện liên tục. Cuốn sách "Atomic Habits" của ông đã bán được hơn 10 triệu bản trên toàn thế giới.',
+  quote = 'Bạn không lên đến mục tiêu, bạn rơi xuống mức độ của hệ thống.',
+  nationality = 'Mỹ',
+  birth_year = 1986,
+  image_url = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600'
+WHERE name = 'James Clear';
+
+UPDATE authors SET 
+  bio = 'Stieg Larsson (1954-2004) là nhà báo và tác giả người Thụy Điển. Series "Millennium" của ông, bắt đầu với "The Girl with the Dragon Tattoo", đã trở thành hiện tượng toàn cầu.',
+  quote = 'Tình bạn là điều quan trọng đối với tôi.',
+  nationality = 'Thụy Điển',
+  birth_year = 1954,
+  death_year = 2004,
+  image_url = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600'
+WHERE name = 'Stieg Larsson';
+
+UPDATE authors SET 
+  bio = 'Robert Kiyosaki là doanh nhân, nhà đầu tư và tác giả người Mỹ. Cuốn sách "Rich Dad Poor Dad" của ông đã thay đổi cách nhìn về tài chính của hàng triệu người trên thế giới.',
+  quote = 'Người giàu không làm việc vì tiền, họ để tiền làm việc cho họ.',
+  nationality = 'Mỹ',
+  birth_year = 1947,
+  image_url = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600'
+WHERE name = 'Robert Kiyosaki';
+
+UPDATE authors SET 
+  bio = 'Viktor Frankl (1905-1997) là bác sĩ tâm thần học và nhà tâm lý trị liệu người Áo. Ông là người sống sót sau Holocaust và sáng lập liệu pháp ý nghĩa. Cuốn sách "Man''s Search for Meaning" là di sản của ông.',
+  quote = 'Giữa kích thích và phản ứng có một khoảng trống. Trong khoảng trống đó là quyền tự do lựa chọn.',
+  nationality = 'Áo',
+  birth_year = 1905,
+  death_year = 1997,
+  image_url = 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=600'
+WHERE name = 'Viktor Frankl';
+
+UPDATE authors SET 
+  bio = 'Martin Seligman là nhà tâm lý học người Mỹ, được coi là cha đẻ của tâm lý học tích cực. Ông đã chuyển hướng tâm lý học từ việc chữa bệnh sang việc xây dựng hạnh phúc.',
+  quote = 'Hạnh phúc không phải là kết quả của gen tốt hay may mắn.',
+  nationality = 'Mỹ',
+  birth_year = 1942,
+  image_url = 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=600'
+WHERE name = 'Martin Seligman';
+
+UPDATE authors SET 
+  bio = 'Liu Cixin là nhà văn khoa học viễn tưởng người Trung Quốc. Tiểu thuyết "The Three-Body Problem" của ông đã giành giải Hugo năm 2015, là tác giả châu Á đầu tiên đạt được vinh dự này.',
+  quote = 'Vũ trụ là một khu rừng tối, mỗi nền văn minh là một thợ săn.',
+  nationality = 'Trung Quốc',
+  birth_year = 1963,
+  image_url = 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=600'
+WHERE name = 'Liu Cixin';
+
+UPDATE authors SET 
+  bio = 'Đây là các tác phẩm được biên soạn bởi nhiều tác giả khác nhau, thường là các sách giáo khoa, sách tham khảo hoặc tuyển tập.',
+  quote = 'Sự hợp tác tạo nên sức mạnh.',
+  nationality = 'Quốc tế',
+  image_url = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600'
+WHERE name = 'Nhiều tác giả';
+
+UPDATE authors SET 
+  bio = 'Marcus Aurelius (121-180) là hoàng đế La Mã và triết gia theo trường phái Khắc kỷ. Tác phẩm "Meditations" của ông là một trong những tác phẩm triết học vĩ đại nhất, viết trong thời gian ông chỉ huy quân đội.',
+  quote = 'Bạn có quyền lực trên tâm trí của mình, không phải các sự kiện bên ngoài.',
+  nationality = 'La Mã',
+  birth_year = 121,
+  death_year = 180,
+  image_url = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600'
+WHERE name = 'Marcus Aurelius';
+
+UPDATE authors SET 
+  bio = 'Stephen Covey (1932-2012) là tác giả, diễn giả và giáo sư người Mỹ. Cuốn sách "The 7 Habits of Highly Effective People" của ông đã bán được hơn 25 triệu bản.',
+  quote = 'Hãy bắt đầu với mục tiêu cuối cùng trong tâm trí.',
+  nationality = 'Mỹ',
+  birth_year = 1932,
+  death_year = 2012,
+  image_url = 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=600'
+WHERE name = 'Stephen Covey';
+
+UPDATE authors SET 
+  bio = 'Eric Carle (1929-2021) là họa sĩ minh họa và tác giả sách thiếu nhi người Mỹ gốc Đức. Cuốn sách "The Very Hungry Caterpillar" của ông đã bán được hơn 50 triệu bản.',
+  quote = 'Tôi tin rằng trẻ em là những người đọc tự nhiên.',
+  nationality = 'Mỹ',
+  birth_year = 1929,
+  death_year = 2021,
+  image_url = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600'
+WHERE name = 'Eric Carle';
+
+UPDATE authors SET 
+  bio = 'Carl Sagan (1934-1996) là nhà thiên văn học, nhà vũ trụ học và tác giả người Mỹ. Ông nổi tiếng với khả năng truyền đạt khoa học một cách dễ hiểu qua series "Cosmos".',
+  quote = 'Chúng ta là cách để vũ trụ tự nhận thức về chính nó.',
+  nationality = 'Mỹ',
+  birth_year = 1934,
+  death_year = 1996,
+  image_url = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600'
+WHERE name = 'Carl Sagan';
+
+UPDATE authors SET 
+  bio = 'Peter Thiel là doanh nhân, nhà đầu tư mạo hiểm và tác giả người Mỹ gốc Đức. Ông là đồng sáng lập PayPal và nhà đầu tư đầu tiên vào Facebook.',
+  quote = 'Cạnh tranh là dành cho kẻ thua cuộc. Hãy tạo ra độc quyền.',
+  nationality = 'Mỹ',
+  birth_year = 1967,
+  image_url = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600'
+WHERE name = 'Peter Thiel';
+
+UPDATE authors SET 
+  bio = 'Nguyễn Ngọc Tư là nhà văn nữ Việt Nam, nổi tiếng với những tác phẩm về miền Tây Nam Bộ. Sinh năm 1976 tại Cà Mau, bà đã tạo nên dấu ấn riêng trong văn học đương đại.',
+  quote = 'Viết là cách tôi sống với những ký ức về quê hương.',
+  nationality = 'Việt Nam',
+  birth_year = 1976,
+  image_url = 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600'
+WHERE name = 'Nguyễn Ngọc Tư';
+
+UPDATE authors SET 
+  bio = 'Patrick Rothfuss là tác giả kỳ ảo người Mỹ, nổi tiếng với series "The Kingkiller Chronicle". Phong cách viết của ông kết hợp giữa kỳ ảo và văn học.',
+  quote = 'Đó là những câu chuyện nhỏ nhặt làm nên một cuộc đời.',
+  nationality = 'Mỹ',
+  birth_year = 1973,
+  image_url = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600'
+WHERE name = 'Patrick Rothfuss';
+
+UPDATE authors SET 
+  bio = 'Jeffrey Liker là giáo sư và tác giả chuyên về hệ thống sản xuất Toyota. Cuốn sách "The Toyota Way" của ông đã trở thành tài liệu kinh điển về quản lý sản xuất tinh gọn.',
+  quote = 'Cải tiến liên tục là chìa khóa của sự xuất sắc.',
+  nationality = 'Mỹ',
+  birth_year = 1954,
+  image_url = 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=600'
+WHERE name = 'Jeffrey Liker';
+
+UPDATE authors SET 
+  bio = 'Jojo Moyes là tiểu thuyết gia người Anh, nổi tiếng với tiểu thuyết "Me Before You". Tác phẩm của bà thường xoay quanh các mối quan hệ con người.',
+  quote = 'Đôi khi bạn phải làm những điều bạn không muốn làm.',
+  nationality = 'Anh',
+  birth_year = 1969,
+  image_url = 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600'
+WHERE name = 'Jojo Moyes';
+
+UPDATE authors SET 
+  bio = 'Trần Bạch Đằng (1926-2007) là họa sĩ và nhà văn Việt Nam, nổi tiếng với các tác phẩm lịch sử bằng tranh. Ông đã cống hiến cả cuộc đời cho việc minh họa lịch sử dân tộc.',
+  quote = 'Lịch sử là bài học quý giá nhất cho thế hệ mai sau.',
+  nationality = 'Việt Nam',
+  birth_year = 1926,
+  death_year = 2007,
+  image_url = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600'
+WHERE name = 'Trần Bạch Đằng';
+
+UPDATE authors SET 
+  bio = 'Friedrich Nietzsche (1844-1900) là triết gia, nhà thơ và nhà phê bình văn hóa người Đức. Tư tưởng của ông về siêu nhân và ý chí quyền lực đã ảnh hưởng sâu rộng đến triết học hiện đại.',
+  quote = 'Điều gì không giết chết ta sẽ làm ta mạnh mẽ hơn.',
+  nationality = 'Đức',
+  birth_year = 1844,
+  death_year = 1900,
+  image_url = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600'
+WHERE name = 'Friedrich Nietzsche';
+
+UPDATE authors SET 
+  bio = 'Reki Kawahara là tác giả light novel người Nhật Bản, nổi tiếng với series "Sword Art Online". Tác phẩm của ông về thế giới game ảo đã trở thành hiện tượng văn hóa.',
+  quote = 'Trong thế giới ảo, cảm xúc của chúng ta vẫn là thật.',
+  nationality = 'Nhật Bản',
+  birth_year = 1974,
+  image_url = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600'
+WHERE name = 'Reki Kawahara';
+
+UPDATE authors SET 
+  bio = 'Eckhart Tolle là tác giả và giáo viên tâm linh người Đức. Cuốn sách "The Power of Now" của ông đã bán được hàng triệu bản, dạy về sống trong hiện tại và tỉnh thức.',
+  quote = 'Nhận ra rằng khoảnh khắc hiện tại là tất cả những gì bạn có.',
+  nationality = 'Đức',
+  birth_year = 1948,
+  image_url = 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=600'
+WHERE name = 'Eckhart Tolle';
+
+UPDATE authors SET 
+  bio = 'Thích Nhất Hạnh (1926-2022) là thiền sư, nhà thơ và nhà hoạt động hòa bình người Việt Nam. Ngài là một trong những nhà sư Phật giáo có ảnh hưởng nhất thế giới.',
+  quote = 'Hạnh phúc có thể có ngay trong giây phút hiện tại.',
+  nationality = 'Việt Nam',
+  birth_year = 1926,
+  death_year = 2022,
+  image_url = 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=600'
+WHERE name = 'Thích Nhất Hạnh';
+
+UPDATE authors SET 
+  bio = 'Nicholas Sparks là tiểu thuyết gia người Mỹ, chuyên viết truyện lãng mạn. Nhiều tác phẩm của ông như "The Notebook", "A Walk to Remember" đã được chuyển thể thành phim.',
+  quote = 'Tình yêu thực sự là về sự hy sinh và cam kết.',
+  nationality = 'Mỹ',
+  birth_year = 1965,
+  image_url = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600'
+WHERE name = 'Nicholas Sparks';
+
+UPDATE authors SET 
+  bio = 'Hồ Chí Minh (1890-1969) là lãnh tụ cách mạng, Chủ tịch nước Việt Nam Dân chủ Cộng hòa, đồng thời là nhà thơ, nhà văn. Tác phẩm văn học của Người mang tính nhân văn sâu sắc.',
+  quote = 'Không có gì quý hơn độc lập tự do.',
+  nationality = 'Việt Nam',
+  birth_year = 1890,
+  death_year = 1969,
+  image_url = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600'
+WHERE name = 'Hồ Chí Minh';
+
+UPDATE authors SET 
+  bio = 'Johanna Basford là họa sĩ minh họa người Scotland, nổi tiếng với các sách tô màu dành cho người lớn. Cuốn "Secret Garden" của bà đã khởi đầu trào lưu tô màu cho người lớn.',
+  quote = 'Nghệ thuật là cách để tìm thấy sự bình yên trong cuộc sống bận rộn.',
+  nationality = 'Anh',
+  birth_year = 1983,
+  image_url = 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600'
+WHERE name = 'Johanna Basford';
+
+UPDATE authors SET 
+  bio = 'Stephen Hawking (1942-2018) là nhà vật lý lý thuyết và vũ trụ học người Anh. Mặc dù mắc bệnh ALS, ông đã có những đóng góp to lớn cho khoa học với "A Brief History of Time".',
+  quote = 'Trí thông minh là khả năng thích nghi với sự thay đổi.',
+  nationality = 'Anh',
+  birth_year = 1942,
+  death_year = 2018,
+  image_url = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600'
+WHERE name = 'Stephen Hawking';
+
+UPDATE authors SET 
+  bio = 'Jules Verne (1828-1905) là nhà văn người Pháp, được coi là cha đẻ của thể loại khoa học viễn tưởng. Tác phẩm của ông đã tiên đoán nhiều phát minh khoa học.',
+  quote = 'Bất cứ điều gì một người có thể tưởng tượng, người khác có thể biến nó thành hiện thực.',
+  nationality = 'Pháp',
+  birth_year = 1828,
+  death_year = 1905,
+  image_url = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600'
+WHERE name = 'Jules Verne';
+
+UPDATE authors SET 
+  bio = 'Bruce Barnbaum là nhiếp ảnh gia và tác giả người Mỹ, nổi tiếng với nghệ thuật nhiếp ảnh phong cảnh đen trắng. Cuốn sách "The Art of Photography" của ông là tài liệu kinh điển.',
+  quote = 'Nhiếp ảnh là nghệ thuật của việc nhìn.',
+  nationality = 'Mỹ',
+  birth_year = 1943,
+  image_url = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600'
+WHERE name = 'Bruce Barnbaum';
