@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test QR Modal Flow</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .step { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        .step h3 { margin-top: 0; color: #1B5E20; }
+        button { background: #1B5E20; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: #0d3d13; }
+        pre { background: #f5f5f5; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        .success { color: green; }
+        .error { color: red; }
+        #result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test QR Payment Modal Flow</h1>
+    
+    <div class="step">
+        <h3>Bước 1: Đăng nhập</h3>
+        <p>Email: <input type="text" id="email" value="qrtest@example.com"></p>
+        <p>Password: <input type="password" id="password" value="Test123!@#"></p>
+        <button onclick="login()">Đăng nhập</button>
+        <div id="login-result"></div>
+    </div>
+
+    <div class="step">
+        <h3>Bước 2: Thêm sách vào giỏ</h3>
+        <p>Book ID: <input type="number" id="bookId" value="30"></p>
+        <button onclick="addToCart()">Thêm vào giỏ</button>
+        <div id="cart-result"></div>
+    </div>
+
+    <div class="step">
+        <h3>Bước 3: Checkout</h3>
+        <p>Địa chỉ: <input type="text" id="address" value="123 Test Street, Hanoi"></p>
+        <button onclick="checkout()">Thanh toán</button>
+        <div id="checkout-result"></div>
+    </div>
+
+    <div class="step">
+        <h3>Bước 4: Xem QR Code</h3>
+        <div id="qr-display"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3000/api';
+        let token = localStorage.getItem('test_token') || '';
+
+        async function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const response = await fetch(`${API_BASE}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    token = data.data.token;
+                    localStorage.setItem('test_token', token);
+                    document.getElementById('login-result').innerHTML = 
+                        `<p class="success">✅ Đăng nhập thành công! User: ${data.data.user.email}</p>`;
+                } else {
+                    document.getElementById('login-result').innerHTML = 
+                        `<p class="error">❌ Lỗi: ${data.error?.message || 'Unknown error'}</p>`;
+                }
+            } catch (error) {
+                document.getElementById('login-result').innerHTML = 
+                    `<p class="error">❌ Lỗi: ${error.message}</p>`;
+            }
+        }
+
+        async function addToCart() {
+            const bookId = parseInt(document.getElementById('bookId').value);
+            
+            try {
+                const response = await fetch(`${API_BASE}/cart/items`, {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ book_id: bookId, quantity: 1 })
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('cart-result').innerHTML = 
+                        `<p class="success">✅ Đã thêm vào giỏ! Tổng: ${data.data.total_items} sản phẩm, ${data.data.total_amount.toLocaleString('vi-VN')}đ</p>`;
+                } else {
+                    document.getElementById('cart-result').innerHTML = 
+                        `<p class="error">❌ Lỗi: ${data.error?.message || 'Unknown error'}</p>`;
+                }
+            } catch (error) {
+                document.getElementById('cart-result').innerHTML = 
+                    `<p class="error">❌ Lỗi: ${error.message}</p>`;
+            }
+        }
+
+        async function checkout() {
+            const address = document.getElementById('address').value;
+            
+            try {
+                const response = await fetch(`${API_BASE}/orders/checkout`, {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ 
+                        shipping_address: address,
+                        payment_method: 'bank_transfer'
+                    })
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    const result = data.data;
+                    document.getElementById('checkout-result').innerHTML = `
+                        <p class="success">✅ Đặt hàng thành công!</p>
+                        <pre>${JSON.stringify({
+                            order_id: result.order_id,
+                            order_number: result.order_number,
+                            total_amount: result.total_amount,
+                            payment_status: result.payment_status,
+                            transfer_content: result.payment?.transfer_content,
+                            bank_name: result.payment?.bank_info?.bank_name,
+                            expires_in_seconds: result.payment?.expires_in_seconds
+                        }, null, 2)}</pre>
+                    `;
+                    
+                    // Display QR
+                    if (result.payment?.qr_data_url) {
+                        document.getElementById('qr-display').innerHTML = `
+                            <h4>Mã QR thanh toán:</h4>
+                            <img src="${result.payment.qr_data_url}" alt="QR Code" style="max-width: 300px; border: 1px solid #ddd; border-radius: 8px;">
+                            <p><strong>Nội dung CK:</strong> ${result.payment.transfer_content}</p>
+                            <p><strong>Ngân hàng:</strong> ${result.payment.bank_info.bank_name}</p>
+                            <p><strong>STK:</strong> ${result.payment.bank_info.account_no}</p>
+                            <p><strong>Chủ TK:</strong> ${result.payment.bank_info.account_name}</p>
+                            <p><strong>Số tiền:</strong> ${result.total_amount.toLocaleString('vi-VN')}đ</p>
+                        `;
+                    } else {
+                        document.getElementById('qr-display').innerHTML = 
+                            `<p class="error">❌ Không có QR data trong response!</p>`;
+                    }
+                } else {
+                    document.getElementById('checkout-result').innerHTML = 
+                        `<p class="error">❌ Lỗi: ${data.error?.message || 'Unknown error'}</p>`;
+                }
+            } catch (error) {
+                document.getElementById('checkout-result').innerHTML = 
+                    `<p class="error">❌ Lỗi: ${error.message}</p>`;
+            }
+        }
+
+        // Check if already logged in
+        if (token) {
+            document.getElementById('login-result').innerHTML = 
+                '<p class="success">✅ Đã có token từ session trước</p>';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Categories API</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .category { margin: 10px 0; padding: 10px; background: #f0f0f0; }
+        .parent { font-weight: bold; color: #1B5E20; }
+        .child { margin-left: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Test Categories từ API</h1>
+    <div id="result"></div>
+
+    <script>
+        async function testCategories() {
+            try {
+                const response = await fetch('http://localhost:3000/api/categories');
+                const data = await response.json();
+                
+                console.log('API Response:', data);
+                
+                if (data.success && data.data) {
+                    const categories = data.data;
+                    
+                    // Find parents
+                    const huCau = categories.find(c => c.name === 'Hư cấu');
+                    const phiHuCau = categories.find(c => c.name === 'Phi hư cấu');
+                    const thieuNhi = categories.find(c => c.name === 'Thiếu nhi');
+                    
+                    // Get children
+                    const huCauChildren = categories.filter(c => c.parent_id === huCau?.category_id);
+                    const phiHuCauChildren = categories.filter(c => c.parent_id === phiHuCau?.category_id);
+                    const thieuNhiChildren = categories.filter(c => c.parent_id === thieuNhi?.category_id);
+                    
+                    let html = `
+                        <div class="category">
+                            <div class="parent">Hư cấu (${huCauChildren.length} categories)</div>
+                            ${huCauChildren.map(c => `<div class="child">- ${c.name} (ID: ${c.category_id})</div>`).join('')}
+                        </div>
+                        <div class="category">
+                            <div class="parent">Phi hư cấu (${phiHuCauChildren.length} categories)</div>
+                            ${phiHuCauChildren.map(c => `<div class="child">- ${c.name} (ID: ${c.category_id})</div>`).join('')}
+                        </div>
+                        <div class="category">
+                            <div class="parent">Thiếu nhi (${thieuNhiChildren.length} categories)</div>
+                            ${thieuNhiChildren.map(c => `<div class="child">- ${c.name} (ID: ${c.category_id})</div>`).join('')}
+                        </div>
+                    `;
+                    
+                    document.getElementById('result').innerHTML = html;
+                } else {
+                    document.getElementById('result').innerHTML = '<p style="color: red;">Error: ' + JSON.stringify(data) + '</p>';
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+                console.error('Error:', error);
+            }
+        }
+        
+        testCategories();
+    </script>
+</body>
+</html>
