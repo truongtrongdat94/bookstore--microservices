@@ -39,7 +39,6 @@ export interface EmailData {
 export interface OrderCreatedEvent {
   order_id: number;
   user_id: number;
-  user_email: string;
   total_amount: number;
   items: any[];
   created_at: Date;
@@ -58,7 +57,6 @@ export interface OrderUpdatedEvent {
 
 export interface PaymentProcessedEvent {
   order_id: number;
-  user_email: string;
   payment_status: string;
   amount: number;
   processed_at: Date;

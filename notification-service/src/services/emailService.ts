@@ -34,8 +34,8 @@ class EmailService {
   // Send order confirmation email
   async sendOrderConfirmation(event: OrderCreatedEvent): Promise<void> {
     try {
-      // Get user email from event (sent by order-service)
-      const userEmail = event.user_email || 'customer@example.com';
+      // In a real implementation, we would fetch user email from user service
+      const userEmail = 'customer@example.com'; // Mock email
       
       const template = this.getOrderConfirmationTemplate(event);
       
@@ -87,8 +87,7 @@ class EmailService {
   // Send payment notification email
   async sendPaymentNotification(event: PaymentProcessedEvent): Promise<void> {
     try {
-      // Get user email from event (sent by order-service)
-      const userEmail = event.user_email || 'customer@example.com';
+      const userEmail = 'customer@example.com'; // Mock email
       
       const template = this.getPaymentNotificationTemplate(event);
       

@@ -5,6 +5,8 @@ import { SearchController } from '../controllers/searchController';
 
 const router = Router();
 
+// Search routes (must be before /:id to avoid conflicts)
+// Requirement 6.1: GET /api/books/search with query parameters
 router.get('/search', SearchController.search);
 router.get('/search/suggestions', SearchController.suggest);
 

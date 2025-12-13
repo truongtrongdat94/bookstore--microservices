@@ -6,7 +6,6 @@ import { ApiResponse, ApiError } from './types';
 import bookRoutes from './routes/books';
 import categoryRoutes from './routes/categories';
 import authorRoutes from './routes/authors';
-import adminRoutes from './routes/admin';
 import winston from 'winston';
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
@@ -77,7 +76,6 @@ app.get('/health', (req: Request, res: Response) => {
 app.use('/books', bookRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/authors', authorRoutes);
-app.use('/admin', adminRoutes);
 
 // Root endpoint
 app.get('/', (req: Request, res: Response) => {

@@ -295,29 +295,27 @@ export class AuthController {
         throw new ApiError(401, 'Invalid email or password. Please check your credentials.', 'INVALID_CREDENTIALS');
       }
       
-      // Generate JWT token with actual role from database
-      const userRole = (user as any).role || 'user';
+      // Generate JWT token
       const payload: JwtPayload = {
         user_id: user.user_id,
         email: user.email,
-        role: userRole
+        role: 'user' // Default role
       };
       
       const token = jwt.sign(payload, config.jwt.secret, {
         expiresIn: config.jwt.expiresIn
       } as jwt.SignOptions);
       
-      logger.info('User logged in successfully', { userId: user.user_id, email: user.email, role: userRole });
+      logger.info('User logged in successfully', { userId: user.user_id, email: user.email });
       
-      // Prepare response with role
+      // Prepare response
       const authResponse: AuthResponse = {
         token,
         user: {
           id: user.user_id,
           email: user.email,
           username: user.username,
-          full_name: user.full_name,
-          role: userRole
+          full_name: user.full_name
         },
         expires_in: config.jwt.expiresIn
       };

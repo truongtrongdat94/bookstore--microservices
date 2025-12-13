@@ -5,7 +5,6 @@ import morgan from 'morgan';
 import { ApiResponse, ApiError } from './types';
 import cartRoutes from './routes/cart';
 import orderRoutes from './routes/orders';
-import adminRoutes from './routes/admin';
 import { HealthController } from './controllers/healthController';
 import winston from 'winston';
 import swaggerUi from 'swagger-ui-express';
@@ -73,7 +72,6 @@ app.get('/health/ready', HealthController.readiness);
 // API Routes
 app.use('/cart', cartRoutes);
 app.use('/orders', orderRoutes);
-app.use('/admin', adminRoutes);
 
 // Root endpoint
 app.get('/', (req: Request, res: Response) => {

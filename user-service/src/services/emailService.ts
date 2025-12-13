@@ -117,42 +117,6 @@ class EmailService {
   }
 }
 
-/**
- * Generic send email function
- * Used for password reset and other custom emails
- */
-export async function sendEmail(options: { to: string; subject: string; html: string; text?: string }): Promise<EmailResult> {
-  try {
-    const transport = createTransport();
-    
-    const mailOptions = {
-      from: `"${emailConfig.from.name}" <${emailConfig.from.address}>`,
-      to: options.to,
-      subject: options.subject,
-      html: options.html,
-      text: options.text || options.html.replace(/<[^>]*>/g, ''),
-    };
-
-    logger.info(`Sending email to: ${options.to}`);
-    const info = await transport.sendMail(mailOptions);
-    
-    logger.info(`Email sent successfully to ${options.to}. Message ID: ${info.messageId}`);
-    
-    return {
-      success: true,
-      messageId: info.messageId,
-    };
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    logger.error(`Failed to send email to ${options.to}:`, error);
-    
-    return {
-      success: false,
-      error: errorMessage,
-    };
-  }
-}
-
 // Export singleton instance
 export const emailService = new EmailService();
 export default emailService;

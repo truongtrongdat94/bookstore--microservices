@@ -21,18 +21,6 @@ const BlogListPage = lazy(() => import('./components/BlogListPage').then(m => ({
 const BlogDetailPage = lazy(() => import('./components/BlogDetailPage').then(m => ({ default: m.BlogDetailPage })));
 const SearchResultsPage = lazy(() => import('./components/SearchResultsPage').then(m => ({ default: m.SearchResultsPage })));
 
-// Static pages - Lazy loaded
-const AboutPage = lazy(() => import('./components/AboutPage').then(m => ({ default: m.AboutPage })));
-const StoresPage = lazy(() => import('./components/StoresPage').then(m => ({ default: m.StoresPage })));
-const CareersPage = lazy(() => import('./components/CareersPage').then(m => ({ default: m.CareersPage })));
-const ContactPage = lazy(() => import('./components/ContactPage').then(m => ({ default: m.ContactPage })));
-const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage').then(m => ({ default: m.PrivacyPolicyPage })));
-const ReturnPolicyPage = lazy(() => import('./components/ReturnPolicyPage').then(m => ({ default: m.ReturnPolicyPage })));
-const ShippingPaymentPage = lazy(() => import('./components/ShippingPaymentPage').then(m => ({ default: m.ShippingPaymentPage })));
-
-// Admin Dashboard - Lazy loaded
-const AdminApp = lazy(() => import('./admin').then(m => ({ default: m.AdminApp })));
-
 // Loading fallback component
 function PageLoader() {
   return (
@@ -44,55 +32,29 @@ function PageLoader() {
 
 export default function App() {
   return (
-    <Routes>
-      {/* Admin Dashboard Routes - No Header/Footer */}
-      <Route
-        path="/admin/*"
-        element={
-          <Suspense fallback={<PageLoader />}>
-            <AdminApp />
-          </Suspense>
-        }
-      />
-
-      {/* Main Store Routes - With Header/Footer */}
-      <Route
-        path="/*"
-        element={
-          <div className="min-h-screen flex flex-col">
-            <ScrollToTop />
-            <Header />
-            <main className="flex-1 w-full">
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/books" element={<BookListingPage onNavigate={() => {}} />} />
-                  <Route path="/books/:id" element={<BookDetailPage />} />
-                  <Route path="/search" element={<SearchResultsPage />} />
-                  <Route path="/blog" element={<BlogListPage />} />
-                  <Route path="/blog/:id" element={<BlogDetailPage />} />
-                  <Route path="/login" element={<AuthPage />} />
-                  <Route path="/register" element={<AuthPage />} />
-                  <Route path="/auth/callback" element={<OAuthCallback />} />
-                  <Route path="/cart" element={<CartPage />} />
-                  <Route path="/authors" element={<AuthorsPage />} />
-                  <Route path="/authors/:id" element={<AuthorDetailPage />} />
-                  <Route path="/profile" element={<ProfilePage onNavigate={() => {}} />} />
-                  {/* Static pages */}
-                  <Route path="/about" element={<AboutPage />} />
-                  <Route path="/stores" element={<StoresPage />} />
-                  <Route path="/careers" element={<CareersPage />} />
-                  <Route path="/contact" element={<ContactPage />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-                  <Route path="/return-policy" element={<ReturnPolicyPage />} />
-                  <Route path="/shipping-payment" element={<ShippingPaymentPage />} />
-                </Routes>
-              </Suspense>
-            </main>
-            <Footer />
-          </div>
-        }
-      />
-    </Routes>
+    <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
+      <Header />
+      <main className="flex-1 w-full">
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/books" element={<BookListingPage onNavigate={() => {}} />} />
+            <Route path="/books/:id" element={<BookDetailPage />} />
+            <Route path="/search" element={<SearchResultsPage />} />
+            <Route path="/blog" element={<BlogListPage />} />
+            <Route path="/blog/:id" element={<BlogDetailPage />} />
+            <Route path="/login" element={<AuthPage />} />
+            <Route path="/register" element={<AuthPage />} />
+            <Route path="/auth/callback" element={<OAuthCallback />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/authors" element={<AuthorsPage />} />
+            <Route path="/authors/:id" element={<AuthorDetailPage />} />
+            <Route path="/profile" element={<ProfilePage onNavigate={() => {}} />} />
+          </Routes>
+        </Suspense>
+      </main>
+      <Footer />
+    </div>
   );
 }

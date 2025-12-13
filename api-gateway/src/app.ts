@@ -39,34 +39,43 @@ app.use((req, res, next) => {
   next();
 });
 
-// Swagger UI - Enabled in all environments
-try {
-  const candidates = [
-    path.resolve(__dirname, '../docs/openapi/openapi.yaml'),
-    path.resolve(__dirname, '../../docs/openapi/openapi.yaml')
-  ];
-  const openapiPath = candidates.find(p => fs.existsSync(p)) || candidates[0];
-  const openapiDocument = YAML.load(openapiPath);
-  
-  // Serve YAML spec
-  app.get('/api-docs.yaml', (req, res) => {
-    res.sendFile(openapiPath);
+// Swagger UI - Only enabled in development mode for security
+// In production, API documentation should be hosted separately or disabled
+if (config.NODE_ENV !== 'production') {
+  try {
+    const candidates = [
+      path.resolve(__dirname, '../docs/openapi/openapi.yaml'),
+      path.resolve(__dirname, '../../docs/openapi/openapi.yaml')
+    ];
+    const openapiPath = candidates.find(p => fs.existsSync(p)) || candidates[0];
+    const openapiDocument = YAML.load(openapiPath);
+    
+    // Serve YAML spec
+    app.get('/api-docs.yaml', (req, res) => {
+      res.sendFile(openapiPath);
+    });
+    
+    // Serve JSON spec (required by some Swagger clients)
+    app.get('/api-docs.json', (req, res) => {
+      res.json(openapiDocument);
+    });
+    
+    // Swagger UI
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiDocument));
+    console.log('📚 Swagger UI enabled at /api-docs (development mode)');
+  } catch (e) {
+    console.error('Failed to load OpenAPI spec:', e);
+    // Fallback route for missing spec
+    app.get('/api-docs.json', (req, res) => {
+      res.status(404).json({ error: 'OpenAPI specification not found' });
+    });
+  }
+} else {
+  // In production, return 404 for API docs endpoints
+  app.use('/api-docs', (req, res) => {
+    res.status(404).json({ error: 'API documentation is not available in production' });
   });
-  
-  // Serve JSON spec (required by some Swagger clients)
-  app.get('/api-docs.json', (req, res) => {
-    res.json(openapiDocument);
-  });
-  
-  // Swagger UI
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiDocument));
-  console.log(`📚 Swagger UI enabled at /api-docs (${config.NODE_ENV} mode)`);
-} catch (e) {
-  console.error('Failed to load OpenAPI spec:', e);
-  // Fallback route for missing spec
-  app.get('/api-docs.json', (req, res) => {
-    res.status(404).json({ error: 'OpenAPI specification not found' });
-  });
+  console.log('📚 Swagger UI disabled (production mode)');
 }
 
 // Health check endpoint
@@ -208,66 +217,6 @@ app.use('/api/blogs', createProxyMiddleware({
   }
 }));
 
-// Proxy to Admin Dashboard API (aggregates from multiple services)
-// Admin dashboard stats - proxied to order service which aggregates data
-app.use('/api/admin/dashboard', createProxyMiddleware({
-  target: services.order,
-  changeOrigin: true,
-  pathRewrite: { '^/api/admin/dashboard': '/admin/dashboard' },
-  onProxyReq: (proxyReq, req, res) => {
-    addUserHeadersToProxy(proxyReq, req);
-    console.log(`Proxying ${req.method} ${req.url} -> ${services.order}${proxyReq.path}`);
-  }
-}));
-
-// Admin book endpoints - CRUD operations for books
-// Requirements: 2.1, 2.3, 2.4, 2.5
-app.use('/api/admin/books', createProxyMiddleware({
-  target: services.book,
-  changeOrigin: true,
-  pathRewrite: { '^/api/admin/books': '/admin/books' },
-  onProxyReq: (proxyReq, req, res) => {
-    addUserHeadersToProxy(proxyReq, req);
-    console.log(`Proxying ${req.method} ${req.url} -> ${services.book}${proxyReq.path}`);
-  }
-}));
-
-// Admin user endpoints - User management for admin
-// Requirements: 9.1, 9.2, 9.3, 10.1, 10.2, 10.3, 10.4, 11.1, 11.2, 11.3
-app.use('/api/admin/users', createProxyMiddleware({
-  target: services.user,
-  changeOrigin: true,
-  pathRewrite: { '^/api/admin/users': '/admin/users' },
-  onProxyReq: (proxyReq, req, res) => {
-    addUserHeadersToProxy(proxyReq, req);
-    console.log(`Proxying ${req.method} ${req.url} -> ${services.user}${proxyReq.path}`);
-  }
-}));
-
-// Admin order endpoints - Order management for admin
-// Requirements: 6.1, 6.2, 6.3, 6.4, 7.1, 7.2, 7.3, 7.4, 8.1, 8.2, 8.3, 8.4
-app.use('/api/admin/orders', createProxyMiddleware({
-  target: services.order,
-  changeOrigin: true,
-  pathRewrite: { '^/api/admin/orders': '/admin/orders' },
-  onProxyReq: (proxyReq, req, res) => {
-    addUserHeadersToProxy(proxyReq, req);
-    console.log(`Proxying ${req.method} ${req.url} -> ${services.order}${proxyReq.path}`);
-  }
-}));
-
-// Admin author endpoints - Author management for admin
-// Requirements: 4.1, 4.2, 4.3, 4.4
-app.use('/api/admin/authors', createProxyMiddleware({
-  target: services.book,
-  changeOrigin: true,
-  pathRewrite: { '^/api/admin/authors': '/admin/authors' },
-  onProxyReq: (proxyReq, req, res) => {
-    addUserHeadersToProxy(proxyReq, req);
-    console.log(`Proxying ${req.method} ${req.url} -> ${services.book}${proxyReq.path}`);
-  }
-}));
-
 // Default route
 app.get('/', (req, res) => {
   res.json({
@@ -278,8 +227,7 @@ app.get('/', (req, res) => {
       book: '/api/books, /api/categories, /api/authors',
       order: '/api/cart, /api/orders',
       notification: '/api/notifications',
-      blog: '/api/blogs',
-      admin: '/api/admin/dashboard, /api/admin/books, /api/admin/orders, /api/admin/authors, /api/admin/users'
+      blog: '/api/blogs'
     }
   });
 });
