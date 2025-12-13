@@ -52,7 +52,7 @@ export class UserModel {
   static async findByEmail(email: string): Promise<User | null> {
     const sql = `
       SELECT user_id, username, email, password_hash, full_name, created_at, updated_at, 
-             is_email_verified, auth_provider, provider_id, avatar_url, phone
+             is_email_verified, auth_provider, provider_id, avatar_url, phone, role
       FROM users
       WHERE email = $1
     `;
@@ -65,7 +65,7 @@ export class UserModel {
   static async findByUsername(username: string): Promise<User | null> {
     const sql = `
       SELECT user_id, username, email, password_hash, full_name, created_at, updated_at,
-             is_email_verified, auth_provider, provider_id, avatar_url, phone
+             is_email_verified, auth_provider, provider_id, avatar_url, phone, role
       FROM users
       WHERE username = $1
     `;
@@ -78,7 +78,7 @@ export class UserModel {
   static async findById(userId: number): Promise<User | null> {
     const sql = `
       SELECT user_id, username, email, full_name, created_at, updated_at,
-             is_email_verified, auth_provider, provider_id, avatar_url, phone
+             is_email_verified, auth_provider, provider_id, avatar_url, phone, role
       FROM users
       WHERE user_id = $1
     `;

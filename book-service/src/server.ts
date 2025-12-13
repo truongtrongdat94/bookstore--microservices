@@ -44,7 +44,7 @@ const startServer = async () => {
     await redis.ping();
     logger.info('Redis connection successful');
     
-    // Start listening
+    // Start listeningapp.listen
     const server = app.listen(config.port, () => {
       logger.info(`Book Service running on port ${config.port}`);
       logger.info(`Environment: ${config.nodeEnv}`);

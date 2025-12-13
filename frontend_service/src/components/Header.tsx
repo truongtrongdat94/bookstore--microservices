@@ -175,7 +175,7 @@ export function Header() {
                       onClick={() => { navigate('/blog?category=tin-nha-nam'); setShowNewsMenu(false); }}
                       className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 hover:text-[#1B5E20] transition-colors whitespace-nowrap"
                     >
-                      Tin Nhã Nam
+                      Tin UIT
                     </button>
                     <button 
                       onClick={() => { navigate('/blog?category=review'); setShowNewsMenu(false); }}

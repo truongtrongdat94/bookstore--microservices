@@ -33,6 +33,9 @@ RUN npm install --omit=dev
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
 
+# Copy OpenAPI docs for Swagger UI
+COPY docs ./docs
+
 # Expose port
 EXPOSE 3000
 
