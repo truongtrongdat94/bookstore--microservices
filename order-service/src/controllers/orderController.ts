@@ -65,6 +65,7 @@ export class OrderController {
           await eventService.publishOrderCreated({
             order_id: order.order_id,
             user_id: req.user.user_id,
+            user_email: req.user.email,
             total_amount: order.total_amount,
             items: orderData.items.map((item, index) => ({
               item_id: index + 1,
@@ -144,6 +145,7 @@ export class OrderController {
           await eventService.publishOrderCreated({
             order_id: order.order_id,
             user_id: req.user.user_id,
+            user_email: req.user.email,
             total_amount: order.total_amount,
             items: orderData.items.map((item, index) => ({
               item_id: index + 1,
@@ -159,6 +161,7 @@ export class OrderController {
           // Publish payment processed event
           await eventService.publishPaymentProcessed({
             order_id: order.order_id,
+            user_email: req.user.email,
             payment_status: PaymentStatus.COMPLETED,
             amount: order.total_amount,
             processed_at: new Date()
@@ -942,8 +945,11 @@ export class OrderController {
       await cartService.clearCart(order.user_id);
 
       // Publish payment confirmed event
+      // Note: user_email should be fetched from user-service in production
+      // For now, we use a placeholder that notification-service will handle
       await eventService.publishPaymentProcessed({
         order_id: orderId,
+        user_email: '', // Will be fetched by notification-service if empty
         payment_status: PaymentStatus.COMPLETED,
         amount: typeof order.total_amount === 'string' ? parseFloat(order.total_amount) : order.total_amount,
         processed_at: new Date()

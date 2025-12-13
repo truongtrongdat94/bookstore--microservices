@@ -174,6 +174,7 @@ export class ApiError extends Error {
 export interface OrderCreatedEvent {
   order_id: number;
   user_id: number;
+  user_email: string;
   total_amount: number;
   items: OrderItem[];
   created_at: Date;
@@ -188,6 +189,7 @@ export interface OrderUpdatedEvent {
 
 export interface PaymentProcessedEvent {
   order_id: number;
+  user_email: string;
   payment_status: PaymentStatus;
   amount: number;
   processed_at: Date;

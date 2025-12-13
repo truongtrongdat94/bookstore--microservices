@@ -6,6 +6,7 @@ import { ApiResponse, ApiError } from './types';
 import authRoutes from './routes/auth';
 import userRoutes from './routes/users';
 import uploadRoutes from './routes/upload';
+import adminRoutes from './routes/admin';
 import winston from 'winston';
 import path from 'path';
 import swaggerUi from 'swagger-ui-express';
@@ -66,6 +67,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/upload', uploadRoutes);
+app.use('/admin', adminRoutes);
 
 // Root endpoint
 app.get('/', (req: Request, res: Response) => {

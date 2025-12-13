@@ -1,0 +1,206 @@
+/**
+ * Book Edit Component for Admin Dashboard
+ * Requirements: 2.1, 2.2
+ */
+import {
+  Edit,
+  SimpleForm,
+  TextInput,
+  NumberInput,
+  SelectInput,
+  DateInput,
+  required,
+  minValue,
+  useGetList,
+  useRecordContext,
+} from 'react-admin';
+import { Box, Grid, Typography, Card, CardMedia } from '@mui/material';
+import { RichTextInput } from '../../components/RichTextInput';
+
+/**
+ * Book Cover Preview Component
+ */
+const BookCoverPreview = () => {
+  const record = useRecordContext();
+  if (!record?.coverImage) return null;
+
+  return (
+    <Card sx={{ maxWidth: 200, mb: 2 }}>
+      <CardMedia
+        component="img"
+        image={record.coverImage}
+        alt={record.title}
+        sx={{ height: 280, objectFit: 'cover' }}
+      />
+    </Card>
+  );
+};
+
+/**
+ * Book Edit Form
+ * Requirement: 2.1 - Edit book with all fields
+ * Requirement: 2.2 - Rich text editor for description
+ */
+export const BookEdit = () => {
+  // Fetch categories for dropdown
+  const { data: categories, isLoading: categoriesLoading } = useGetList(
+    'categories',
+    { pagination: { page: 1, perPage: 100 } }
+  );
+
+  const categoryChoices = categories?.map((cat: any) => ({
+    id: cat.id,
+    name: cat.name,
+  })) || [];
+
+  return (
+    <Edit title="Chỉnh sửa sách" redirect="list" mutationMode="pessimistic">
+      <SimpleForm>
+        <Grid container spacing={3}>
+          {/* Basic Information */}
+          <Grid item xs={12}>
+            <Typography variant="h6" gutterBottom>
+              Thông tin cơ bản
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12} md={8}>
+            <TextInput
+              source="title"
+              label="Tên sách"
+              validate={required('Vui lòng nhập tên sách')}
+              fullWidth
+            />
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <TextInput source="isbn" label="ISBN" fullWidth />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <TextInput
+              source="authorName"
+              label="Tác giả"
+              validate={required('Vui lòng nhập tên tác giả')}
+              fullWidth
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <SelectInput
+              source="categoryId"
+              label="Danh mục"
+              choices={categoryChoices}
+              validate={required('Vui lòng chọn danh mục')}
+              fullWidth
+              isLoading={categoriesLoading}
+            />
+          </Grid>
+
+          {/* Pricing */}
+          <Grid item xs={12}>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+              Giá & Tồn kho
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <NumberInput
+              source="price"
+              label="Giá bán (VNĐ)"
+              validate={[required('Vui lòng nhập giá'), minValue(0, 'Giá phải >= 0')]}
+              fullWidth
+            />
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <NumberInput
+              source="originalPrice"
+              label="Giá gốc (VNĐ)"
+              fullWidth
+            />
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <NumberInput
+              source="stock"
+              label="Số lượng tồn kho"
+              validate={minValue(0, 'Số lượng phải >= 0')}
+              fullWidth
+            />
+          </Grid>
+
+          {/* Additional Details */}
+          <Grid item xs={12}>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+              Thông tin chi tiết
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <TextInput source="publisher" label="Nhà xuất bản" fullWidth />
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <NumberInput source="pages" label="Số trang" fullWidth />
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <SelectInput
+              source="language"
+              label="Ngôn ngữ"
+              choices={[
+                { id: 'Tiếng Việt', name: 'Tiếng Việt' },
+                { id: 'English', name: 'English' },
+                { id: 'Tiếng Nhật', name: 'Tiếng Nhật' },
+                { id: 'Tiếng Trung', name: 'Tiếng Trung' },
+              ]}
+              fullWidth
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <TextInput source="dimensions" label="Kích thước" fullWidth />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <DateInput source="publishedDate" label="Ngày xuất bản" fullWidth />
+          </Grid>
+
+          {/* Cover Image */}
+          <Grid item xs={12}>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+              Ảnh bìa
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <BookCoverPreview />
+          </Grid>
+
+          <Grid item xs={12} md={8}>
+            <TextInput
+              source="coverImage"
+              label="URL ảnh bìa"
+              fullWidth
+              helperText="Nhập URL ảnh bìa sách"
+            />
+          </Grid>
+
+          {/* Description with Rich Text Editor */}
+          <Grid item xs={12}>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+              Mô tả sách
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12}>
+            <RichTextInput source="description" label="Mô tả chi tiết" />
+          </Grid>
+        </Grid>
+      </SimpleForm>
+    </Edit>
+  );
+};
+
+export default BookEdit;

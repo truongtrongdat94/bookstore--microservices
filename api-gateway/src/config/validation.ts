@@ -1,4 +1,4 @@
-﻿export interface ValidationResult {
+export interface ValidationResult {
   valid: boolean;
   missing: string[];
   warnings: string[];
@@ -33,10 +33,10 @@ export function validateConfig(configs: ConfigDefinition[], nodeEnv: string = 'd
     const value = process.env[config.name];
     if (config.required && (value === undefined || value === '')) {
       if (isProduction) missing.push(config.name);
-      else if (config.defaultValue === undefined) warnings.push(config.name + ' is not set');
+      else if (config.defaultValue === undefined) warnings.push(`${config.name} is not set`);
     }
     if (isProduction && config.sensitive && value && isKnownDefault(value)) {
-      missing.push(config.name + ' (insecure default)');
+      missing.push(`${config.name} (insecure default)`);
     }
   }
   return { valid: missing.length === 0, missing, warnings };
@@ -44,7 +44,7 @@ export function validateConfig(configs: ConfigDefinition[], nodeEnv: string = 'd
 
 export function validateAndThrow(configs: ConfigDefinition[], nodeEnv: string = 'development'): void {
   const result = validateConfig(configs, nodeEnv);
-  if (!result.valid) throw new Error('Config validation failed: ' + result.missing.join(', '));
+  if (!result.valid) throw new Error(`Config validation failed: ${result.missing.join(', ')}`);
 }
 
 export function getEnvVar(name: string, opts: { defaultValue?: string | number; required?: boolean; sensitive?: boolean } = {}): string | number {
@@ -52,11 +52,11 @@ export function getEnvVar(name: string, opts: { defaultValue?: string | number; 
   const value = process.env[name];
   const isProduction = process.env.NODE_ENV === 'production';
   if (value !== undefined && value !== '') {
-    if (isProduction && sensitive && isKnownDefault(value)) throw new Error(name + ' uses insecure default');
+    if (isProduction && sensitive && isKnownDefault(value)) throw new Error(`${name} uses insecure default`);
     return value;
   }
-  if (required && isProduction) throw new Error('Missing required environment variable: ' + name);
+  if (required && isProduction) throw new Error(`Missing required environment variable: ${name}`);
   if (defaultValue !== undefined) return defaultValue;
   if (!required) return '';
-  throw new Error('Missing required environment variable: ' + name);
+  throw new Error(`Missing required environment variable: ${name}`);
 }
